@@ -6,6 +6,27 @@
   "retries": 3,
   "monitoring": [
     {
+    "enabled": true,
+    "name": "Main Net",
+    "url": "https://ctz.solidwallet.io/api/v3/",
+    "method": "JSONRPC",
+    "payload": {
+      "jsonrpc": "2.0",
+      "id": 1234,
+      "method": "icx_call",
+      "params": {
+        "to": "cx0000000000000000000000000000000000000000",
+        "dataType": "call",
+        "data": {
+          "method": "getPReps",
+          "params": {
+            "startRanking": "0x1",
+            "endRanking": "0xffff"
+          }
+        }
+      }
+    },
+    {
       "enabled": true,
       "name": "Homepage",
       "url": "http://feed-the-beast.com/",
