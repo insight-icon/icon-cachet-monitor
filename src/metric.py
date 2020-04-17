@@ -7,7 +7,8 @@ from pprint import pprint
 
 
 def get_latency(url: str, runs: int = 3):
-    domain_name = url.replace("https://", "").replace("/api/v3/", "")
+    domain_name = url.replace("https://", "").replace("/api/v3", "")
+    print(domain_name)
     latency = measure_latency(host=domain_name, runs=runs)
     return latency
 
@@ -30,3 +31,7 @@ def get_metrics():
     m = u.getMetrics().json()
     pprint(m)
 
+url = 'https://bicon.tracker.solidwallet.io/'
+
+l = get_latency(url)
+print(l)
