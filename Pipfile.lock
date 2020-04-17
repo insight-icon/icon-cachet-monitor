@@ -1,7 +1,7 @@
 {
     "_meta": {
         "hash": {
-            "sha256": "a36695995bf6c2a936028c033c666f69bf4db489e43af77d5f4ed41a5f673c16"
+            "sha256": "f1d8e9306cf68727d9f55a7dafbf9205519c20398b648fd4f1413575093f5cef"
         },
         "pipfile-spec": 6,
         "requires": {
@@ -148,6 +148,14 @@
                 "sha256:8f3cd2e254d8f793e7f3d6d9df77b92252b52637291d0f0da013c76ea2724b6c"
             ],
             "version": "==1.14.0"
+        },
+        "tcp-latency": {
+            "hashes": [
+                "sha256:64455a331e8b0c8b74ac369754a11cba348b3236a4c9547ab191257d60742d60",
+                "sha256:716b9d986d021e598a55b27020b6eb3a80bdd3e80358484f2c6c4bf1899b9f42"
+            ],
+            "index": "pypi",
+            "version": "==0.0.8"
         },
         "tzlocal": {
             "hashes": [

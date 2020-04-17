@@ -9,6 +9,7 @@ verify_ssl = true
 requests = {extras = ["security"],version = "*"}
 colorama = "*"
 APScheduler = "*"
+tcp-latency = "*"
 
 [requires]
 python_version = "3.7"

@@ -1,3 +1,4 @@
 requests[security]
 apscheduler
 colorama
+tcp-latency
