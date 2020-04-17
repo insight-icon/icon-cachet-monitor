@@ -4,8 +4,8 @@ import logging
 
 from apscheduler.schedulers.blocking import BlockingScheduler
 from apscheduler.triggers.date import DateTrigger
-from system.monitor import Cachet
-from system.utils import Utils
+from src.monitor import Cachet
+from src.utils import Utils
 
 
 # Copyright 2017 Gareth Williams
@@ -22,9 +22,9 @@ from system.utils import Utils
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-logging.basicConfig()
+logging.basicConfig(level=0)
 
-if not os.path.exists("settings/config.json"):
+if not os.path.exists("config/config.json"):
     print("|! Couldn't find config.json!")
     print("|! rename the config.json.example to config.json and edit it as required.")
     print("|! After that, run the script again.")

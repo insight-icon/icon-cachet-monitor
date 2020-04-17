@@ -1,21 +1,32 @@
 from tcp_latency import measure_latency
+from src.utils import Utils
+
+import logging
+
+from pprint import pprint
 
 
-def get_latency(url: str, runs: int = 10):
-    domain_name = url.replace("https://", "").replace("/api/v3", "")
-    return measure_latency(host=domain_name, runs=runs)
+def get_latency(url: str, runs: int = 3):
+    domain_name = url.replace("https://", "").replace("/api/v3/", "")
+    latency = measure_latency(host=domain_name, runs=runs)
+    return latency
 
 
 def get_avg_latency(url: str, num_runs: int = 5):
     avg = sum(get_latency(url, num_runs)) / num_runs
+    # print(f'collecting latency from {url} resulting in {avg} ms latency')
     return avg
 
 
-# print(get_avg_latency('https://test-ctz.solidwallet.io'))
+def post_latency_metric(url: str, metric_id: int):
+    l = get_avg_latency(url)
+    u = Utils()
+    logging.debug("posting to metric id %s value %s" % (metric_id, l))
+    u.postMetricsPointsByID(c_id=metric_id, value=float(l))
 
-# url = 'https://zicon.net.solidwallet.io'
-url = 'ctz.solidwallet.io/api/v3'
-print(get_latency(url))
-print(get_avg_latency(url))
-#
-# print(get_latency('https://google.com'))
+
+def get_metrics():
+    u = Utils()
+    m = u.getMetrics().json()
+    pprint(m)
+

@@ -9,7 +9,7 @@ class Utils(object):
 
     def readConfig(self):
         # Open Json File
-        with open('settings/config.json', 'r') as json_data:
+        with open('config/config.json', 'r') as json_data:
             return json.load(json_data)
 
     def __getRequest(self, path):
@@ -264,7 +264,6 @@ class Utils(object):
         :return: :class:`Response <Response>` object
         :rtype: requests.Response
         """
-
         kwargs['value'] = value
         return self.__postRequest('/metrics/%s/points' % c_id, kwargs)
 

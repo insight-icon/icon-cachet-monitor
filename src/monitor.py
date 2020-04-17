@@ -5,7 +5,8 @@ import requests
 import http.client
 import time
 
-from system.logging import Logger
+from src.logs import Logger
+from src.metric import post_latency_metric
 from .utils import Utils
 #
 #
@@ -123,6 +124,8 @@ class Cachet(object):
                 if isEnabled:
                     pass
                 if request_method.lower() == "get":
+                    post_latency_metric(url, c_id)
+
                     r = requests.get(url, verify=True, timeout=check_timeout)
                     # self.utils.postMetricsPointsByID(1, r.elapsed.total_seconds() * 1000)
                     if r.status_code not in status_codes and r.status_code not in self.httpErrors:
@@ -146,6 +149,8 @@ class Cachet(object):
                             self.utils.putComponentsByID(c_id, status=c_status)
                         self.logs.warn("%s" % error_code.replace('\n', '').replace('`', ''))
                 elif request_method.lower() == "post":
+                    post_latency_metric(url, c_id)
+
                     r = requests.get(url, verify=True, timeout=check_timeout)
                     if r.status_code not in status_codes and r.status_code not in self.httpErrors:
                         error_code = '%s check **failed** - %s \n\n`%s %s HTTP Status Error: %s`' % (
@@ -169,6 +174,8 @@ class Cachet(object):
                         self.logs.warn("%s" % error_code.replace('\n', '').replace('`', ''))
 
                 elif request_method.lower() == "jsonrpc":
+                    post_latency_metric(url, c_id)
+
                     r = requests.post(url, verify=True, json=payload)
                     if r.status_code not in status_codes and r.status_code not in self.httpErrors:
                         error_code = '%s check **failed** - %s \n\n`%s %s HTTP Status Error: %s`' % (

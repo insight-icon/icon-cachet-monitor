@@ -14,5 +14,5 @@ Service that:
 
 ###### Credits
 
-cachet-monitor: https://github.com/Gaz492/cachet-monitor
-Cachet Library: https://github.com/imlonghao/cachet.python
+- cachet-monitor: https://github.com/Gaz492/cachet-monitor
+- Cachet Library: https://github.com/imlonghao/cachet.python

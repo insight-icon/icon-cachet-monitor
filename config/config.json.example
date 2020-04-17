@@ -10,6 +10,7 @@
       "name": "Main Net",
       "url": "https://ctz.solidwallet.io/api/v3/",
       "method": "JSONRPC",
+      "metrics": ["latency"],
       "payload": {
         "jsonrpc": "2.0",
         "id": 1234,
@@ -37,7 +38,7 @@
       "name": "Yeouido",
       "url": "https://bicon.tracker.solidwallet.io/",
       "method": "GET",
-      "component_id": 2,
+      "component_id": 4,
       "timeout": 5,
       "expected_status_code": [
         200
@@ -64,7 +65,7 @@
           }
         }
       },
-      "component_id": 3,
+      "component_id": 2,
       "timeout": 5,
       "expected_status_code": [
         200
@@ -73,8 +74,24 @@
     {
       "enabled": true,
       "name": "Euljiro",
-      "url": "https://test-ctz.solidwallet.io",
-      "method": "GET",
+      "url": "https://test-ctz.solidwallet.io/api/v3/",
+      "method": "JSONRPC",
+      "payload": {
+        "jsonrpc": "2.0",
+        "id": 1234,
+        "method": "icx_call",
+        "params": {
+          "to": "cx0000000000000000000000000000000000000000",
+          "dataType": "call",
+          "data": {
+            "method": "getPReps",
+            "params": {
+              "startRanking": "0x1",
+              "endRanking": "0xffff"
+            }
+          }
+        }
+      },
       "component_id": 3,
       "timeout": 5,
       "expected_status_code": [

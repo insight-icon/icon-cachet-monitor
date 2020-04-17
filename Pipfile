@@ -10,6 +10,7 @@ requests = {extras = ["security"],version = "*"}
 colorama = "*"
 APScheduler = "*"
 tcp-latency = "*"
+pytest = "*"
 
 [requires]
 python_version = "3.7"
