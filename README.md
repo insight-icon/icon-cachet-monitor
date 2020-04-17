@@ -9,8 +9,14 @@ Service that:
 1. Clone the project
 2. Rename `config.json.example` to 'config.json'
 3. Edit `config.json` to suit your needs REMEMBER TO CHANGE THE API URL AND TOKEN
-4. Run the script using `python cachetMonitor.py`
+4. Run the script using `python run.py`
 5. (Optional) setup cron script to execute the script automatic
+
+For docker:
+```bash
+docker-compose up -d 
+```
+
 
 ###### Credits
 
