@@ -1,0 +1,10 @@
+# Don't push to dhub - has api key
+!config
+
+!src
+!run.py
+
+LICENSE
+Pipfile
+Pipfile.lock
+README.md

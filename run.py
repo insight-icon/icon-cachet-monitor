@@ -22,7 +22,9 @@ from src.utils import Utils
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-logging.basicConfig(level=0)
+logging.basicConfig()
+
+os.environ['TZ'] = 'UTC'
 
 if not os.path.exists("config/config.json"):
     print("|! Couldn't find config.json!")
